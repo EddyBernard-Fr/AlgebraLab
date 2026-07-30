@@ -28,10 +28,15 @@ AlgebraLab permet actuellement de :
 - additionner deux matrices ;
 - multiplier deux matrices.
 
+## Screenshots
+
+![fenêtre principale de AlgebraLab](assets/screenshots/main-window.png)
+
 ## Technologies utilisées
 
 - Python
 - PyQt
+- PySide6
 - SQLite
 - NumPy
 - PyInstaller
@@ -41,23 +46,12 @@ AlgebraLab permet actuellement de :
 ```text
 AlgebraLab/
 ├── assets/
-│   └── matrice.ico
 ├── data/
-│   └── algebralab.db
-├── src/
-│   └── algebralab/
-│       ├── __init__.py
-│       ├── config.py
-│       ├── main.py
-│       ├── algebra/
-│       ├── database/
-│       ├── gui/
-│       └── manager/
+├── src/algebralab/
 ├── tests/
 ├── AlgebraLab.spec
-├── requirements.txt
 ├── README.md
-└── .gitignore
+└── requirements.txt
 ```
 
 - `gui/` contient les fenêtres et les composants de l’interface graphique.
@@ -67,6 +61,14 @@ AlgebraLab/
 - `config.py` centralise les chemins vers les ressources de l’application.
 - `assets/` contient les ressources graphiques, notamment l’icône.
 - `data/` contient la base de données locale.
+
+## Download
+
+La dernière version exécutable pour Windows est disponible sur la page
+[Releases](../../releases/latest).
+
+Windows SmartScreen peut afficher un avertissement car le fichier exécutable n'est pas signé numériquement. 
+Sélectionnez **Plus d'informations**, puis **Exécuter quand même**.
 
 ## Installation
 
@@ -143,6 +145,11 @@ Les dossiers `build/` et `dist/` sont générés automatiquement et ne sont pas 
 Les matrices sont enregistrées localement dans une base de données SQLite.
 
 Aucun serveur de base de données externe n’est nécessaire pour utiliser l’application.
+
+Lors de l'exécution du fichier exécutable du package, AlgebraLab stocke les données utilisateur dans : %LOCALAPPDATA%\AlgebraLab
+
+Lorsqu'on exécute le programme à partir du code source, la base de données de développement se trouve dans le
+répertoire data du projet.
 
 ## Objectif pédagogique
 
