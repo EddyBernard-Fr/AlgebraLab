@@ -1,38 +1,48 @@
 # AlgebraLab
 
-AlgebraLab est une application de bureau développée en Python pour manipuler des matrices à travers une interface graphique.
+## Highlights
 
-L’objectif principal de ce projet est de proposer une interface claire et accessible permettant de créer, visualiser et gérer des matrices sans avoir à utiliser directement le terminal.
+- Desktop application developed with Python and PySide6
+- Matrix creation, editing, and storage
+- SQLite database integration
+- Matrix addition and multiplication
+- Modular application architecture
+- Windows executable generated with PyInstaller
 
-## Aperçu
+AlgebraLab is a desktop application developed in Python for creating, storing, and manipulating matrices through a graphical user interface.
 
-L’application permet d’enregistrer des matrices dans une base de données locale, puis de les retrouver et de les manipuler depuis l’interface graphique.
+The main objective of this project is to provide a simple and intuitive interface for working with matrices without requiring direct interaction with the terminal.
 
-Le projet met principalement l’accent sur :
+## Overview
 
-- la conception d’une interface graphique ;
-- l’organisation des différentes fenêtres de l’application ;
-- la gestion des interactions avec l’utilisateur ;
-- la séparation entre l’interface, la logique métier et l’accès aux données.
+The application allows users to create, import, store, retrieve, and manipulate matrices through an intuitive graphical interface.
 
-## Fonctionnalités
+This project mainly focuses on:
 
-AlgebraLab permet actuellement de :
+- GUI development using PySide6
+- Software architecture and modular design
+- User interaction and event handling
+- SQLite database integration
+- Separation between the graphical interface, business logic, and data access layer
 
-- créer une matrice depuis l’interface ;
-- importer une matrice depuis un fichier ;
-- enregistrer des matrices dans une base de données SQLite ;
-- afficher les matrices enregistrées ;
-- modifier une matrice ;
-- supprimer une matrice ;
-- additionner deux matrices ;
-- multiplier deux matrices.
+## Features
+
+AlgebraLab currently supports:
+
+- Creating matrices from the graphical interface
+- Importing matrices from files
+- Storing matrices in a local SQLite database
+- Displaying stored matrices
+- Editing matrices
+- Deleting matrices
+- Matrix addition
+- Matrix multiplication
 
 ## Screenshots
 
-![fenêtre principale de AlgebraLab](assets/screenshots/main-window.png)
+![AlgebraLab main window](assets/screenshots/main-window.png)
 
-## Technologies utilisées
+## Technologies
 
 - Python
 - PyQt
@@ -41,7 +51,7 @@ AlgebraLab permet actuellement de :
 - NumPy
 - PyInstaller
 
-## Structure du projet
+## Project Structure
 
 ```text
 AlgebraLab/
@@ -54,124 +64,138 @@ AlgebraLab/
 └── requirements.txt
 ```
 
-- `gui/` contient les fenêtres et les composants de l’interface graphique.
-- `manager/` assure la communication entre l’interface et la logique de l’application.
-- `algebra/` implémentation des opérations sur les matrices.
-- `database/` contient les fonctions d’accès à la base de données SQLite.
-- `config.py` centralise les chemins vers les ressources de l’application.
-- `assets/` contient les ressources graphiques, notamment l’icône.
-- `data/` contient la base de données locale.
+- `gui/` – Graphical user interface components and application windows.
+- `manager/` – Communication layer between the GUI and the application logic.
+- `algebra/` – Matrix operations implementation.
+- `database/` – SQLite database access layer.
+- `config.py` – Centralized application configuration.
+- `assets/` – Icons and graphical resources.
+- `data/` – Local SQLite database.
 
 ## Download
 
-La dernière version exécutable pour Windows est disponible sur la page
-[Releases](../../releases/latest).
+The latest Windows executable is available on the project's
+[Releases](../../releases/latest) page.
 
-Windows SmartScreen peut afficher un avertissement car le fichier exécutable n'est pas signé numériquement. 
-Sélectionnez **Plus d'informations**, puis **Exécuter quand même**.
+Windows SmartScreen may display a warning because the executable is not digitally signed.
+
+Select **More info**, then **Run anyway**.
 
 ## Installation
 
-### 1. Cloner le dépôt
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/EddyBernard-Fr/AlgebraLab.git
 cd AlgebraLab
 ```
 
-### 2. Créer un environnement virtuel
+### 2. Create a virtual environment
 
-Sous Windows :
+**Windows**
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-Sous Linux ou macOS :
+**Linux / macOS**
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Installer les dépendances
+### 3. Install the dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-## Lancement depuis le code source
+## Running from the Source Code
 
-Depuis la racine du projet, sous PowerShell :
+From the project root directory, under PowerShell:
 
 ```powershell
 $env:PYTHONPATH="src"
 python -m algebralab.main
 ```
 
-Sous Linux ou macOS :
+Under Linux or macOS:
 
 ```bash
 PYTHONPATH=src python -m algebralab.main
 ```
 
-## Création de l’exécutable Windows
+## Building the Windows Executable
 
-PyInstaller permet de générer une version exécutable de l’application.
+PyInstaller is used to generate a standalone Windows executable.
 
-Installez PyInstaller si nécessaire :
+Install PyInstaller if necessary:
 
 ```bash
 python -m pip install pyinstaller
 ```
 
-Puis lancez la construction depuis la racine du projet :
+Then build the application from the project root:
 
 ```bash
 pyinstaller --clean AlgebraLab.spec
 ```
 
-L’exécutable est ensuite disponible dans :
+The executable is generated in:
 
 ```text
 dist/AlgebraLab.exe
 ```
 
-Les dossiers `build/` et `dist/` sont générés automatiquement et ne sont pas suivis par Git.
+The `build/` and `dist/` directories are automatically generated and are not tracked by Git.
 
-## Base de données
+## Database
 
-Les matrices sont enregistrées localement dans une base de données SQLite.
+Matrices are stored locally in a SQLite database.
 
-Aucun serveur de base de données externe n’est nécessaire pour utiliser l’application.
+No external database server is required.
 
-Lors de l'exécution du fichier exécutable du package, AlgebraLab stocke les données utilisateur dans : %LOCALAPPDATA%\AlgebraLab
+When running the packaged executable, AlgebraLab stores user data in:
 
-Lorsqu'on exécute le programme à partir du code source, la base de données de développement se trouve dans le
-répertoire data du projet.
+```text
+%LOCALAPPDATA%\AlgebraLab
+```
 
-## Objectif pédagogique
+When running the project from the source code, the development database is located in the project's `data/` directory.
 
-AlgebraLab a principalement été réalisé pour approfondir :
+## Educational Objectives
 
-- la création d’interfaces graphiques en Python ;
-- la gestion d’événements et d’interactions utilisateur ;
-- l’organisation d’une application en plusieurs modules ;
-- l’utilisation d’une base SQLite ;
-- la génération d’un exécutable avec PyInstaller.
+This project was mainly developed to deepen my understanding of:
 
-## Améliorations possibles
+- Desktop GUI development in Python
+- Event-driven programming
+- Modular software architecture
+- SQLite database management
+- Executable generation with PyInstaller
 
-Parmi les évolutions envisagées :
+## Future Improvements
 
-- ajout de nouvelles opérations matricielles ;
-- amélioration de la validation des saisies ;
-- ajout de tests automatisés ;
-- amélioration de la gestion des erreurs ;
-- automatisation de la création de l’exécutable ;
-- publication de versions téléchargeables avec GitHub Releases.
+Possible future enhancements include:
 
-## Auteur
+- Additional matrix operations
+- Improved input validation
+- Automated testing
+- Better error handling
+- Automated executable generation
+- Continuous delivery through GitHub Releases
 
-Projet développé par Eddy Bernard.
+## Author
+
+**Eddy Bernard**
+
+PhD in Mathematics & Theoretical Chemistry
+
+GitHub: https://github.com/EddyBernard-Fr
+
+This repository is part of my scientific computing portfolio.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
